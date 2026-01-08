@@ -16,7 +16,8 @@
         android:layout_marginHorizontal="8dp"
         android:layout_marginVertical="3dp"
         app:cardCornerRadius="8dp"
-        app:cardElevation="4dp">
+        app:cardElevation="4dp"
+        android:background="@color/cardview_shadow_start_color">
 
         <TextView
             android:id="@+id/lesson_subject"

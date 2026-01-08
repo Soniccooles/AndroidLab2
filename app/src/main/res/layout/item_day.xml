@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="6dp"
-        android:background="@color/cardview_shadow_start_color"
+        android:background="#FFD700"
         tools:text="Понедельник"
         app:layout_constraintTop_toTopOf="parent"
         />
