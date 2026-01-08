@@ -1,4 +1,5 @@
 package com.itandrew.androidlab2.data
 
-class ScheduleItem {
+enum class WeekType {
+    EVEN, ODD
 }

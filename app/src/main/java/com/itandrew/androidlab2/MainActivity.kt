@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         setContentView(binding.root)
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.main_fragment_layout, MainFragment())
+            .replace(R.id.main_frame, MainFragment())
             .commit()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
