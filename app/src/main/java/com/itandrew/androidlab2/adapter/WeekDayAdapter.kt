@@ -30,7 +30,7 @@ class WeekDayAdapter(private val days: List<Day>) : RecyclerView.Adapter<WeekDay
     class DayViewHolder(private val binding: ItemDayBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(day: Day) {
             val formatter = DateTimeFormatter.ofPattern("EEEE, d MMMM", Locale("ru", "RU"))
-            binding.dayHeader.text = day.date.format(formatter)
+            binding.dayTitle.text = day.date.format(formatter)
 
             if (day.lessons.isEmpty()) {
                 binding.lessonsRecycler.visibility = View.GONE
