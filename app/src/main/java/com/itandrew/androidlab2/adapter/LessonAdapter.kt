@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.itandrew.androidlab2.data.Lesson
 import com.itandrew.androidlab2.databinding.ItemLessonBinding
 
-class LessonAdapter(private val lessons: ArrayList<Lesson>) : RecyclerView.Adapter<LessonAdapter.LessonViewHolder>() {
+class LessonAdapter(private val lessons: List<Lesson>) : RecyclerView.Adapter<LessonAdapter.LessonViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
