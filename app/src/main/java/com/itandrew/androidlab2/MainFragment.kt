@@ -11,30 +11,26 @@ import dev.androidbroadcast.vbpd.viewBinding
 class MainFragment : Fragment(R.layout.fragment_main) {
     val binding: FragmentMainBinding by viewBinding(FragmentMainBinding::bind)
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        replaceFragment(TodayFragment())    
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.bottomNavView.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.item_today -> replaceFragment(TodayFragment())
-                R.id.item_week -> replaceFragment(WeekFragment())
-
-                else -> {
-
-                }
-            }
-            true
+        super.onViewCreated(view, savedInstanceState)
+        if (savedInstanceState == null) {
+            replaceFragment(TodayFragment())
+            binding.bottomNavView.selectedItemId = R.id.item_today
         }
 
-
-        super.onViewCreated(view, savedInstanceState)
+        binding.bottomNavView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.item_today -> {
+                    replaceFragment(TodayFragment())
+                    true // Возвращаем true, чтобы отметить пункт как выбранный
+                }
+                R.id.item_week -> {
+                    replaceFragment(WeekFragment())
+                    true
+                }
+                else -> false // Для других пунктов, если они появятся
+            }
+        }
     }
 
     private fun replaceFragment(fragment: Fragment) {

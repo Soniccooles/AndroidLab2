@@ -20,7 +20,8 @@ class WeekDayAdapter(private val days: List<Day>) : RecyclerView.Adapter<WeekDay
     }
 
     override fun onBindViewHolder(holder: WeekDayAdapter.DayViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val day = days[position]
+        holder.bind(day)
     }
 
     override fun getItemCount(): Int {

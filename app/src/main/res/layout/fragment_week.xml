@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".WeekFragment"
+    >
 
     <TextView
         android:id="@+id/week_type"
@@ -12,20 +14,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:textSize="25sp"
-        android:padding="20dp"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:textAlignment="center"
+        tools:text="Неделя 1"
         />
 
+    <TextView
+        android:id="@+id/week_day_no_lessons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Пар нет!!!"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_week"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintENd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/week_type"
-        tools:listitem="@layout/item_day_header"
+        tools:listitem="@layout/item_day"
+        tools:itemCount="4"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

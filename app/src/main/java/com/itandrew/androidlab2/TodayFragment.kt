@@ -13,18 +13,19 @@ import com.itandrew.androidlab2.databinding.FragmentTodayBinding
 import dev.androidbroadcast.vbpd.viewBinding
 import java.time.LocalDate
 
-class TodayFragment : Fragment() {
+class TodayFragment : Fragment(R.layout.fragment_today) {
     val binding: FragmentTodayBinding by viewBinding(FragmentTodayBinding::bind)
     private lateinit var lessonAdapter: LessonAdapter
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val currentDayOfWeek = LocalDate.now().dayOfWeek
+
+        val today = LocalDate.now()
+        val currentDayOfWeek = today.dayOfWeek
         val currentWeekType = DataSource.getCurrentWeekType()
-        val schedule = DataSource.createMockSchedule()
-        val currentWeekSchedule = schedule.find {it.weekType == currentWeekType}
-        val todaySchedule = currentWeekSchedule?.days?.find {
-            it.dayName == currentDayOfWeek
-        }
+
+        val monday = today.minusDays(currentDayOfWeek.value.toLong() - 1)
+        val todaySchedule = DataSource.generateWeekSchedule(monday, currentWeekType).find { it.date == today }
 
         if (todaySchedule != null && todaySchedule.lessons.isNotEmpty()) {
             binding.noLessonsToday.visibility = View.GONE
